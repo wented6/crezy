@@ -20,7 +20,7 @@ const gif = require("gif-search");
 
 const client = new Discord.Client({disableEveryone: true});
 
-const prefix = "M";
+const prefix = "M"; 
 /////////////////////////
 ////////////////////////
 
@@ -33,7 +33,7 @@ client.on('message', async msg =>{
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-    if(command === `ping`) {
+    if(command === `ping`) {///سرعة اتصال البوت
     let embed = new Discord.RichEmbed()
     .setColor(3447003)
     .setTitle("Pong!!")
@@ -55,7 +55,7 @@ client.on('message', async msg =>{
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-    if(command === `aaaaaaaaaaaa`){
+    if(command === `ava`){///كيف تاخذ افتار واحد
 	if(msg.channel.type === 'dm') return msg.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
         let mentions = msg.mentions.members.first()
         if(!mentions) {
@@ -102,7 +102,7 @@ client.on('message', async msg => {
 	if (command === `play`) {
 		const voiceChannel = msg.member.voiceChannel;
         
-        if (!voiceChannel) return msg.channel.send("يجب توآجد حضرتك بروم صوتي .");
+        if (!voiceChannel) return msg.channel.send("I can't find you in any voice channel!");
         
         const permissions = voiceChannel.permissionsFor(msg.client.user);
         
@@ -145,7 +145,7 @@ client.on('message', async msg => {
 					var videos = await youtube.searchVideos(searchString, 5);
 					let index = 0;
                     const embed1 = new Discord.RichEmbed()
-                    .setTitle(":mag_right:  الرجاء اختيار رقم :")
+                    .setTitle(":mag_right:  YouTube Search Results :")
                     .setDescription(`
                     ${videos.map(video2 => `${++index}. **${video2.title}**`).join('\n')}`)
                     
@@ -181,16 +181,16 @@ client.on('message', async msg => {
         
 	} else if (command === `skip`) {
 
-		if (!msg.member.voiceChannel) return msg.channel.send("أنت لست بروم صوتي .");
-        if (!serverQueue) return msg.channel.send("لايوجد شئ لتخطيه حاليآ .");
+		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
+        if (!serverQueue) return msg.channel.send("There is no Queue to skip!!");
 
 		serverQueue.connection.dispatcher.end('Ok, skipped!');
         return undefined;
         
 	} else if (command === `stop`) {
 
-		if (!msg.member.voiceChannel) return msg.channel.send("أنت لست بروم صوتي .");
-        if (!serverQueue) return msg.channel.send("لايوجد شئ للإيقاف .");
+		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
+        if (!serverQueue) return msg.channel.send("There is no Queue to stop!!");
         
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('Ok, stopped & disconnected from your Voice channel');
@@ -198,14 +198,14 @@ client.on('message', async msg => {
         
 	} else if (command === `vol`) {
 
-		if (!msg.member.voiceChannel) return msg.channel.send("انت لست بروم صوتي .");
+		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
 		if (!serverQueue) return msg.channel.send('You only can use this command while music is playing!');
         if (!args[1]) return msg.channel.send(`The bot volume is **${serverQueue.volume}**`);
         
 		serverQueue.volume = args[1];
         serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 50);
         
-        return msg.channel.send(`:microphone:  تم نغير الصوت الى  **${args[1]}**`);
+        return msg.channel.send(`Volume Now is **${args[1]}**`);
 
 	} else if (command === `np`) {
 
@@ -315,6 +315,7 @@ function play(guild, song) {
 
 
 
+
 client.on('message', function(message) {
 	const myID = "451129303137255434";
     let args = message.content.split(" ").slice(1).join(" ");
@@ -331,10 +332,10 @@ client.on('message', function(message) {
             if(!args) return message.reply('اكتب الحالة اللي تريدها.');
         client.user.setGame(args , 'https://twitch.tv/6xlez1');
         message.channel.send(':white_check_mark: Done!').then(msg => {
-           msg.delete(10000);
+           msg.delete(5000);
           message.delete(5000);
         });
-    } else if(message.content.startsWith(prefix + "بلاي")) {
+    } else if(message.content.startsWith(prefix + "بلاينق")) {
 				        if(message.author.id !== myID) return;
             if(!args) return message.reply('اكتب الحالة اللي تريدها.');
         client.user.setGame(args);
@@ -377,17 +378,4 @@ client.on('message', function(message) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);///لاتغير شي
