@@ -380,13 +380,13 @@ client.on('message', message => {
         .addField("Mplay",' لـتشفيل البوت ')
         .addField("Mskip",' لـخطي الاغنيه ')
         .addField("Mvol",' لـرفع صوت البوت')
-		.addField("Mنيم",' تغيير اسم البوت')
-		.addField("Mافتار",'تغيير صورة البوت')
-		.addField("Mستريم",' تغير حالة البوت')
-		.addField("Mبلاينق",'تغير حالة البوت')
-		.addField("Mواتش",' تغير حالة البوت')
-		.addField("Mلسن",' تغير حالة البوت')
-		.addField("Mping",' معرفة سرعه اتصال البوت')
+	.addField("Mنيم",' تغيير اسم البوت')
+	.addField("Mافتار",'تغيير صورة البوت')
+	.addField("Mستريم",' تغير حالة البوت')
+	.addField("Mبلاينق",'تغير حالة البوت')
+	.addField("Mواتش",' تغير حالة البوت')
+	.addField("Mلسن",' تغير حالة البوت')
+	.addField("Mping",' معرفة سرعه اتصال البوت')
 		
         message.channel.sendEmbed(embed);
     }
