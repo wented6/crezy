@@ -372,7 +372,7 @@ client.on('message', function(message) {
 
 
 client.on('message', message => {
-    var prefix = "M"
+    var prefix = ""
     if (message.content.toLowerCase() === prefix + "help") {
         let embed = new Discord.RichEmbed()
         .setColor("RANDOM")
