@@ -317,7 +317,7 @@ function play(guild, song) {
 
 
 client.on('message', function(message) {
-	const myID = "451129303137255434";
+	const myID = "425018693999919104";
     let args = message.content.split(" ").slice(1).join(" ");
     if(message.content.startsWith(prefix + "نيم")) {
 		        if(message.author.id !== myID) return;
